@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.pointer:hover{
+    cursor: pointer;
+}
+.f-destaque{
+    font-family: 'Abril Fatface', cursive;
+}
+
+.pre-color{
+    color: #021D80;
+}
 .produt{
     width: 300px;
 }
@@ -7,3 +25,94 @@
 .img-produt{
     width: 226px;
 }
+.borda-black{
+    border: 1px solid black;
+}
+.comprar{
+    width: 90% ;
+    display: block;
+    margin: auto;
+}
+.add-cart{
+    width: 90% ;
+    height: 22px ;
+    display: block;
+    margin: auto;
+}
+
+.de-prec{
+    color: #8E0000;
+}
+.por-prec{
+    color: #021D80;
+    margin-top: -30px;
+}
+
+.border-red{
+    border: 1px solid #8C0000;
+}
+
+.cart-itens{
+    transition: linear 0.2s;
+    transform: scaleX(0);
+    transform-origin: right;
+    right: 0;
+    position: absolute;
+    background-color: #EFEFEF;
+    width: 360px;
+    max-height: 550px;
+    z-index: 1000;
+    border:2px solid #8C0000;
+}
+.scale1{
+    transform: scaleX(1);
+    
+}
+
+.itens{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+}
+.itens > .img-cart{
+    width: 40%;
+}
+.itens > .sessao{
+    padding: 10px;
+    width: 60%;
+    display: block;
+    text-align: center;
+}
+.itens  .sessao h1{
+    font-size: 1.3rem;
+
+}
+.itens .sessao .quant{
+    display: flex;
+    justify-content: center;
+}
+
+.itens .sessao .quant input[type="number"]{
+    width: 45px;
+    margin:0px 5px;
+}
+
+.itens .sessao .quant label{
+    margin: 5px;
+}
+.itens .sessao .lixeira{
+    width: 20px;
+}
+.itens .sessao .remove{
+    display: block;
+    text-align: right;
+}
+.prec-color{
+    color: #021D80;
+    font-size: 20px;
+    margin: 20px 0px 0px 0px;
+}
+
+
+
+
