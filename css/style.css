@@ -112,6 +112,25 @@ body{
     font-size: 20px;
     margin: 20px 0px 0px 0px;
 }
+.oferta{
+    width: 60%;
+}
+@media (max-width:600px) {
+    .oferta{
+        width: 80%;
+    }
+}
+
+.responsive{
+    width: 14rem;
+}
+
+@media (max-width:479px) {
+    .responsive{
+        width:80% ;
+    }
+}
+
 
 
 

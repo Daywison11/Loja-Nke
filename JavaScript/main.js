@@ -47,9 +47,9 @@ function crearItem(img,nome,id){
             `<h1 class="nome-do-modelo"> ${nome} </h1>`+
             `<div class="quant">
                 <label for="quant">quantidade </label>
-                <input type="number" name="quantidade" id="quantidade${id}" >
+                <input type="number" name="quantidade" id="quantidade${id}" value="1">
             </div>` + 
-            `<p class="prec-color">R$299,99</p>
+            `<p class="prec-color" id="prec${id}">R$299,99</p>
             <button class="remove" ><img src="imagens/lixeira.png" alt="ico-lixeira" class="lixeira" onclick="lixeira${id}()" id="lixeira${id}()" ></button>`)
 
     $('.pedidos').append(item + produto)
@@ -120,6 +120,7 @@ function addTOcart(){
             carrinho.push(produtos[4].id)
             crearItem(produtos[4].imagem, produtos[4].nome,produtos[4].id)
             aposAddcart()
+            $("#prec5").html('R$249,99')
         }
         else{
             aposAddcart()
