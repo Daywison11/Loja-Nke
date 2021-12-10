@@ -105,7 +105,7 @@ body{
 }
 .itens .sessao .remove{
     display: block;
-    text-align: right;
+    margin-left: 80%;
 }
 .prec-color{
     color: #021D80;

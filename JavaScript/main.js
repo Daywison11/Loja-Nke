@@ -47,10 +47,10 @@ function crearItem(img,nome,id){
             `<h1 class="nome-do-modelo"> ${nome} </h1>`+
             `<div class="quant">
                 <label for="quant">quantidade </label>
-                <input type="number" name="quantidade" id="quantidade" >
+                <input type="number" name="quantidade" id="quantidade${id}" >
             </div>` + 
             `<p class="prec-color">R$299,99</p>
-            <a class=" remove"><img src="imagens/lixeira.png" alt="ico-lixeira" class="lixeira"></a>`)
+            <button class="remove" ><img src="imagens/lixeira.png" alt="ico-lixeira" class="lixeira" onclick="lixeira${id}()" id="lixeira${id}()" ></button>`)
 
     $('.pedidos').append(item + produto)
 }
@@ -73,6 +73,7 @@ function addTOcart(){
             crearItem(produtos[0].imagem, produtos[0].nome,produtos[0].id)
             }
             
+            
         else{
             aposAddcart()
         }
@@ -81,13 +82,12 @@ function addTOcart(){
     $('#2').click(()=>{
         if(carrinho.indexOf(2) === -1){
             aposAddcart()
-
+            
             carrinho.push(produtos[1].id)
             crearItem(produtos[1].imagem, produtos[1].nome,produtos[1].id)
         }
         else{
             aposAddcart()
-            
         }
         
     })
@@ -95,7 +95,6 @@ function addTOcart(){
         if(carrinho.indexOf(3) === -1){
             
             aposAddcart()
-
             carrinho.push(produtos[2].id)
             crearItem(produtos[2].imagem, produtos[2].nome,produtos[2].id)}
         else{
@@ -119,11 +118,92 @@ function addTOcart(){
         if(carrinho.indexOf(5) === -1){
             
             carrinho.push(produtos[4].id)
-            crearItem(produtos[4].imagem, produtos[4].nome,produtos[4].id)}
+            crearItem(produtos[4].imagem, produtos[4].nome,produtos[4].id)
+            aposAddcart()
+        }
         else{
             aposAddcart()
         }
         
     })
 }
+function lixeira1(){
+    $("#1").remove()
+    carrinho.splice(0)
+}
+
+function lixeira2(){
+    $("#2").remove()
+    carrinho.splice(1)
+}
+function lixeira3(){
+    $("#3").remove()
+    carrinho.splice(2)
+}
+function lixeira4(){
+    $("#4").remove()
+    carrinho.splice(3)
+}
+function lixeira5(){
+    $("#5").remove()
+    carrinho.splice(4)
+}
+
+function somar(){
+    if (existeInCart(1)== true){
+        var primeiro = pegarValue(1,'primeiro')
+    }
+    else{
+        var primeiro = 0
+    }
+    if (existeInCart(2)== true){
+        var segundo = pegarValue(2,'segundo')
+
+    }
+    else{
+        var segundo = 0
+    }
+    if  (existeInCart(3)== true){
+        var terceiro = pegarValue(3,'terceiro')
+
+    }
+    else{
+        var terceiro = 0
+    }
+    if (existeInCart(4)== true){
+        var quarto = pegarValue(4,'quarto')
+
+    }
+    else{
+        var quarto = 0
+    }
+    if (existeInCart(5)== true){
+        var quinto = pegarValue(5,'quinto')
+    }
+    else{
+        var quinto = 0
+    }
+    function total(){
+        var total = ((primeiro + segundo + terceiro + quarto) * 299.99) +  quinto * 249.99
+        $('#total').html('R$'+ total.toFixed(2))
+    }
+    total()
+    
+}
+function pegarValue(id,result){
+    var prim = document.querySelector(`#quantidade${id}`).value
+    var result = Number(prim)
+    return result
+}
+
+function existeInCart(id){
+    if(carrinho.indexOf(id) === -1){
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+
 addTOcart()

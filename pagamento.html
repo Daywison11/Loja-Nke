@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>pagina de pagamento</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;" >
+        <div class="card" style="max-width: 300px;">
+            <img src="imagens/pagamentos.png" class="card-img-top" alt="pagamento" style="width: 100%;">
+          
+            <div class="card-body">
+              <h5 class="card-title text-center">formas de pagamento</h5>
+              <p class="card-text text-center">pagina para pagamentos</p>
+              <a onclick="alertar()" class="btn btn-primary bg-black d-block text-center">finalizar</a>
+            </div>
+          </div>
+    </div>
+
+    <script>
+        function alertar(){
+            alert('compra finalizada')
+            window.history.back()
+        }
+    </script>
+</body>
+</html>
