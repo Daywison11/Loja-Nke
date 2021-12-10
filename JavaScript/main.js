@@ -1,3 +1,5 @@
+//abertura do carrinho no canto superior direito
+
 (window).onscroll = function (){
     $('.cart-itens').removeClass('scale1')
 }
@@ -5,6 +7,7 @@ function cartItens(){
     $('.cart-itens').toggleClass('scale1')
 }
 
+//objeto com cada produto 
 let carrinho = []
 const produtos = [
     {
@@ -54,6 +57,7 @@ function crearItem(img,nome,id){
 
     $('.pedidos').append(item + produto)
 }
+//função de animação apos objeto ser adicionado a carrinho
 function aposAddcart(){
     $(window).scrollTop(0)
             setTimeout(()=> {
@@ -64,6 +68,8 @@ function aposAddcart(){
             },2000)
 }
 
+
+//função que cria o item no carrino apos click em add ao carrinho
 function addTOcart(){
     $('#1').click(()=>{
 
@@ -128,6 +134,8 @@ function addTOcart(){
         
     })
 }
+
+//função que remove os itens do carrinho
 function lixeira1(){
     $("#1").remove()
     carrinho.splice(0)
@@ -150,6 +158,8 @@ function lixeira5(){
     carrinho.splice(4)
 }
 
+//fuunnção para somar os itens no carrinho e multiplicar pela quantidade de produtos com base no 
+//preço de cada um deles
 function somar(){
     if (existeInCart(1)== true){
         var primeiro = pegarValue(1,'primeiro')
@@ -191,12 +201,15 @@ function somar(){
     total()
     
 }
+//função que pega o valor no objeto com base no id que esta cadastrado
 function pegarValue(id,result){
     var prim = document.querySelector(`#quantidade${id}`).value
     var result = Number(prim)
     return result
 }
 
+
+//função para verificar se ja  existe o item no carrinho
 function existeInCart(id){
     if(carrinho.indexOf(id) === -1){
         return false
