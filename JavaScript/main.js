@@ -50,12 +50,14 @@ function crearItem(img,nome,id){
             `<h1 class="nome-do-modelo"> ${nome} </h1>`+
             `<div class="quant">
                 <label for="quant">quantidade </label>
-                <input type="number" name="quantidade" id="quantidade${id}" value="1">
+                <input type="number" name="quantidade" id="quantidade${id}" value="1" onchange="quantidadeItens(${id})">
             </div>` + 
             `<p class="prec-color" id="prec${id}">R$299,99</p>
             <button class="remove" ><img src="imagens/lixeira.png" alt="ico-lixeira" class="lixeira" onclick="lixeira${id}()" id="lixeira${id}()" ></button>`)
 
     $('.pedidos').append(item + produto)
+     somar();
+     
 }
 //função de animação apos objeto ser adicionado a carrinho
 function aposAddcart(){
@@ -66,6 +68,21 @@ function aposAddcart(){
             setTimeout(()=>{
                 $('#ico-cart').css({'border': 'none'})
             },2000)
+}
+
+function quantidadeItens(id) {
+    somar();
+
+    let selectid = `#quantidade${id}`;
+    let quantselect = $(selectid).val()
+
+    if (quantselect <= 0) {
+        $(`#${id}`).remove();
+        carrinho.splice(0);
+        alert('Item removido do carrinho!');
+    }
+
+
 }
 
 
@@ -134,6 +151,9 @@ function addTOcart(){
         
     })
 }
+
+
+
 
 //função que remove os itens do carrinho
 function lixeira1(){
